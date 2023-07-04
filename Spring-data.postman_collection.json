@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "72c271da-ac7e-4042-a1bf-2a6d6b6d1287",
+		"name": "Spring-data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28237617"
+	},
+	"item": [
+		{
+			"name": "auto-gereted - Cargos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9001/auto-gereted/cargos?qtd=1000",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"auto-gereted",
+						"cargos"
+					],
+					"query": [
+						{
+							"key": "qtd",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auto-gereted - Unid Trabalho",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9001/auto-gereted/unid-trabalho?qtd=1000",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"auto-gereted",
+						"unid-trabalho"
+					],
+					"query": [
+						{
+							"key": "qtd",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auto-gereted - Funcionarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9001/auto-gereted/funcionarios?qtd=10",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"auto-gereted",
+						"funcionarios"
+					],
+					"query": [
+						{
+							"key": "qtd",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Relatorio - Funcionarios Salario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9001/auto-gereted/funcionarios?qtd=10",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"auto-gereted",
+						"funcionarios"
+					],
+					"query": [
+						{
+							"key": "qtd",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
