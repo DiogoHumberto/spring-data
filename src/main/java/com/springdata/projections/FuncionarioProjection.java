@@ -5,10 +5,10 @@ import java.util.Date;
 
 public interface FuncionarioProjection {
 	
-	String getName();
+	String getNome();
 	String getCpf();
 	BigDecimal getSalario();
-	Date getDtContratacao();
+	Date getDt_contratacao();
 	
 
 }

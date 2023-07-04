@@ -2,10 +2,11 @@ package com.springdata.service;
 
 import java.util.List;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import com.springdata.projections.FuncionarioProjection;
 import com.springdata.repository.FuncionarioRepository;
+import com.springdata.repository.specification.FuncionarioSpecification;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,9 +17,10 @@ public class FuncionarioService {
 	private final FuncionarioRepository funcRepository;
 	
 	
-	public List<FuncionarioProjection> relatorioSalario(){
+	public <T> Object relatorioSalario(String nome){
 		
-		return funcRepository.findFuncionarioSalario();
+		return nome == null ? funcRepository.findFuncionarioSalario() : funcRepository.findAll(Specification.where(FuncionarioSpecification.nome(nome)));
+		
 	}
 
 
