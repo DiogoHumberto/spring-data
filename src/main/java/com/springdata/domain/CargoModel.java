@@ -1,7 +1,6 @@
 package com.springdata.domain;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
@@ -13,12 +12,8 @@ import com.springdata.enums.Booleano;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -54,10 +49,5 @@ public class CargoModel {
     
     @Column(name = "salario_base")
 	private BigDecimal salarioBase;
-
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "hist_cargo_func", joinColumns = @JoinColumn(name = "uuid_cargo"), 
-	inverseJoinColumns = @JoinColumn(name = "uuid_funcionario"))
-	private List<FuncionarioModel> histCargoFunc;
 
 }

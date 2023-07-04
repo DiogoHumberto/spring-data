@@ -1,7 +1,7 @@
 package com.springdata.domain;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -55,7 +55,7 @@ public class FuncionarioModel {
 	private BigDecimal salario;
 	
 	@Column(name = "dt_contratacao")
-	private LocalDate dtContratacao;
+	private Date dtContratacao;
 	
     @Convert(converter = BooleanoAttributeConverter.class)
     @Column(name = "status")
@@ -73,5 +73,9 @@ public class FuncionarioModel {
 	inverseJoinColumns = { @JoinColumn(name = "uuid_unid") })
 	private List<UnidTrabalhoModel> unidadeTrabalhos;
 	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "hist_cargo_func", joinColumns = @JoinColumn(name = "uuid_funcionario"), 
+	inverseJoinColumns = @JoinColumn(name = "uuid_cargo"))
+	private List<CargoModel> histCargoFunc;
 
 }
