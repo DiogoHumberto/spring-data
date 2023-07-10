@@ -42,6 +42,13 @@ public class ControllerCargo {
 		return ResponseEntity.ok(cargoService.obterPorId(id));
 		
 	}
+	 
+	@PostMapping("/proc")
+	public ResponseEntity<String> criarViaProc(@RequestBody @Valid CargoDto dto, UriComponentsBuilder uriBuilder) {
+					
+		return ResponseEntity.ok(cargoService.saveProcNative(dto));
+		
+	}
 	
 	@PostMapping
 	public ResponseEntity<CargoModel> criar(@RequestBody @Valid CargoDto dto, UriComponentsBuilder uriBuilder) {

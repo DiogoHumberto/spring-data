@@ -11,9 +11,11 @@ import com.springdata.exception.BadRequestException;
 import com.springdata.repository.CargoRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CargoService {
 	
 	private final CargoRepository cargoRepository;
@@ -51,6 +53,36 @@ public class CargoService {
 		cargo.setStatus(dto.getStatus());
 		
 		return cargoRepository.save(cargo);
+		
+	}
+	
+	public String saveProcNative(CargoDto dto) {
+		
+		try {	
+			log.info("Iniciando 'add_data' em saveProcedure");
+			cargoRepository.saveProcNative(UUID.randomUUID(), dto.getAtividades(), dto.getNome(), dto.getSalarioBase(), 1);
+			
+		}catch (Exception e) {
+			log.info("Erro exec proc 'add_data' em saveProcedure");
+			return "Erro ao exec proc";
+		}
+		
+		return "Proc exec com sucesso";
+		
+	}
+	
+	public String saveProc(CargoDto dto) {
+		
+		try {	
+			log.info("Iniciando 'add_data' em saveProcedure");
+			cargoRepository.saveProc(UUID.randomUUID(), dto.getAtividades(), dto.getNome(), dto.getSalarioBase(), 1);
+			
+		}catch (Exception e) {
+			log.info("Erro exec proc 'add_data' em saveProcedure");
+			return "Erro ao exec proc";
+		}
+		
+		return "Proc exec com sucesso";
 		
 	}
 
