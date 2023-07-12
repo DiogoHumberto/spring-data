@@ -19,7 +19,7 @@ BEGIN
    FROM  (
       SELECT c.nome, c.salario_base
       FROM   cargo c
-      WHERE  c.salario_base >= sl and      
+      WHERE  c.salario_base >= sl and   c.status = 1   
       ) c
    ORDER  BY salarioBase DESC;                  
 END
