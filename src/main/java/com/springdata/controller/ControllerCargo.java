@@ -2,6 +2,7 @@ package com.springdata.controller;
 
 import java.math.BigDecimal;
 import java.net.URI;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,7 +48,7 @@ public class ControllerCargo {
 	}
 	
 	@GetMapping("/obter/ativos-por-salario-maior")
-	public ResponseEntity<List<CargoSalarioProjection>> obterSalarioAtivoMaior(@RequestParam("valor-base") @NotNull BigDecimal valor) {
+	public ResponseEntity<LinkedHashSet<Object>> obterSalarioAtivoMaior(@RequestParam("valor-base") @NotNull BigDecimal valor) {
 		
 		return ResponseEntity.ok(cargoService.buscaSalarioAtivoMaior(valor));
 		

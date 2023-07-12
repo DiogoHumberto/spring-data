@@ -1,6 +1,7 @@
 package com.springdata.service;
 
 import java.math.BigDecimal;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -88,9 +89,18 @@ public class CargoService {
 		
 	}
 	
-	public List<CargoSalarioProjection> buscaSalarioAtivoMaior(BigDecimal salario) {
+	public LinkedHashSet<Object> buscaSalarioAtivoMaior(BigDecimal salario) {
 		
-		return cargoRepository.buscarSalarioMaiorAtivo(salario);
+		var listResult = cargoRepository.buscarSalarioMaiorAtivo(salario);
+		
+		var hashSet = new LinkedHashSet <Object>();
+		
+		hashSet.addAll(listResult);
+		
+		hashSet.add("Total resultados: " + listResult.size());
+		
+		return hashSet;
+	
 	}
 
 }
