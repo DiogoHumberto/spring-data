@@ -32,6 +32,34 @@
 			"response": []
 		},
 		{
+			"name": "save Proc - Cargos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\":\"testando proc\",\r\n    \"atividades\": \"nova proc com sem o atv\",\r\n    \"salarioBase\" : 50000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9001/cargos/proc",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"cargos",
+						"proc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "auto-gereted - Unid Trabalho",
 			"request": {
 				"method": "POST",
@@ -103,6 +131,14 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "busca-ativos-salario-maior - Cargos",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
