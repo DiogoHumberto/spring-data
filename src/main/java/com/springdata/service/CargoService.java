@@ -1,5 +1,6 @@
 package com.springdata.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.springdata.domain.CargoModel;
 import com.springdata.dto.CargoDto;
 import com.springdata.exception.BadRequestException;
+import com.springdata.projections.CargoSalarioProjection;
 import com.springdata.repository.CargoRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -84,6 +86,11 @@ public class CargoService {
 		
 		return "Proc exec com sucesso";
 		
+	}
+	
+	public List<CargoSalarioProjection> buscaSalarioAtivoMaior(BigDecimal salario) {
+		
+		return cargoRepository.buscarSalarioMaiorAtivo(salario);
 	}
 
 }

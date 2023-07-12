@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 
 import com.springdata.domain.CargoModel;
+import com.springdata.projections.CargoSalarioProjection;
 
 import jakarta.transaction.Transactional;
 
@@ -43,4 +44,6 @@ public interface CargoRepository  extends JpaRepository <CargoModel, UUID>{
 	            @Param("status")int status
 	    );
 	
+	@Query(nativeQuery = true, value = "SELECT * FROM cargos_atv_sl_maior(:sl)")
+	List<CargoSalarioProjection> buscarSalarioMaiorAtivo(@Param("sl") BigDecimal salario);
 }

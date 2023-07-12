@@ -1,5 +1,6 @@
 package com.springdata.controller;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.util.List;
 import java.util.UUID;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.springdata.domain.CargoModel;
 import com.springdata.dto.CargoDto;
+import com.springdata.projections.CargoSalarioProjection;
 import com.springdata.service.CargoService;
 
 import jakarta.validation.Valid;
@@ -40,6 +43,13 @@ public class ControllerCargo {
 	public ResponseEntity<CargoModel> obterPorId(@PathVariable @NotNull UUID id) {
 		
 		return ResponseEntity.ok(cargoService.obterPorId(id));
+		
+	}
+	
+	@GetMapping("/obter/ativos-por-salario-maior")
+	public ResponseEntity<List<CargoSalarioProjection>> obterSalarioAtivoMaior(@RequestParam("valor-base") @NotNull BigDecimal valor) {
+		
+		return ResponseEntity.ok(cargoService.buscaSalarioAtivoMaior(valor));
 		
 	}
 	 
