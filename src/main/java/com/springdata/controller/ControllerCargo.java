@@ -19,7 +19,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.springdata.domain.CargoModel;
 import com.springdata.dto.CargoDto;
-import com.springdata.projections.CargoSalarioProjection;
 import com.springdata.service.CargoService;
 
 import jakarta.validation.Valid;
